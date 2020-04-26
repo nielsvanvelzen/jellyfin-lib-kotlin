@@ -37,4 +37,6 @@ fun JellyfinConfiguration.android(
 		device = deviceName,
 		version = clientVersion
 	)
+
+	discoveryBroadcastAddressesProvider = AndroidBroadcastAddressesProvider(context)
 }

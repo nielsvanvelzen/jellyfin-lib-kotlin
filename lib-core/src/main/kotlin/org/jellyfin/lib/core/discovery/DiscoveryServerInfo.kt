@@ -1,4 +1,4 @@
-package org.jellyfin.lib.android.discovery
+package org.jellyfin.lib.core.discovery
 
 import com.google.gson.annotations.SerializedName
 
