@@ -8,6 +8,7 @@ import io.ktor.client.request.request
 import io.ktor.client.request.url
 import io.ktor.client.statement.HttpResponse
 import io.ktor.http.*
+import org.jellyfin.lib.model.DeviceProfile
 
 abstract class Api(
 	private val jellyfin: Jellyfin,

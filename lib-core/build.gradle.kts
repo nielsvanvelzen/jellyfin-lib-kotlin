@@ -5,12 +5,13 @@ plugins {
 repositories {
 	google()
 	jcenter()
-	mavenCentral()
 }
 
 dependencies {
 	implementation(kotlin("stdlib-jdk8"))
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5")
+
+	api(project(":lib-model"))
 
 	// HTTP
 	implementation("io.ktor:ktor-client-android:1.3.2")

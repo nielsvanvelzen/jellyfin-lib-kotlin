@@ -1,6 +1,7 @@
 package org.jellyfin.lib.core
 
 import io.ktor.client.call.receive
+import org.jellyfin.lib.model.DeviceProfile
 
 class Server(
 	val jellyfin: Jellyfin,

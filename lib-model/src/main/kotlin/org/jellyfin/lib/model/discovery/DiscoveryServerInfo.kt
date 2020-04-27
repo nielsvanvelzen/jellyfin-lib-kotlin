@@ -1,4 +1,4 @@
-package org.jellyfin.lib.core.discovery
+package org.jellyfin.lib.model.discovery
 
 data class DiscoveryServerInfo(
 	val id: String,

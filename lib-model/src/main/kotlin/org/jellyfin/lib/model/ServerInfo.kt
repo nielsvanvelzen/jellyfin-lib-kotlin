@@ -1,4 +1,4 @@
-package org.jellyfin.lib.core.rest.model
+package org.jellyfin.lib.model
 
 import com.google.gson.annotations.SerializedName
 

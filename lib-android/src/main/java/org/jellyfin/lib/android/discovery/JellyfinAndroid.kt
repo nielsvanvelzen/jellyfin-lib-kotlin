@@ -3,8 +3,8 @@ package org.jellyfin.lib.android.discovery
 import android.content.Context
 import android.provider.Settings
 import org.jellyfin.lib.android.BuildConfig
-import org.jellyfin.lib.core.DeviceProfile
 import org.jellyfin.lib.core.JellyfinConfiguration
+import org.jellyfin.lib.model.DeviceProfile
 import java.util.*
 
 private const val DEVICE_ID = "device_id"

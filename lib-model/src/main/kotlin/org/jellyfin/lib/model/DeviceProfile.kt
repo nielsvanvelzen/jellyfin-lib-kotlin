@@ -1,4 +1,4 @@
-package org.jellyfin.lib.core
+package org.jellyfin.lib.model
 
 data class DeviceProfile(
 	val client: String,

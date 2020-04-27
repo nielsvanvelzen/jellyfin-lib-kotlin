@@ -4,6 +4,7 @@ import com.google.gson.Gson
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.isActive
+import org.jellyfin.lib.model.discovery.DiscoveryServerInfo
 import java.net.DatagramPacket
 import java.net.DatagramSocket
 import java.net.InetAddress

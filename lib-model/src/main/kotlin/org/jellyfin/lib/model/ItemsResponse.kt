@@ -1,4 +1,4 @@
-package org.jellyfin.lib.core.rest.model
+package org.jellyfin.lib.model
 
 data class ItemsResponse(
 	val items: List<Item>
