@@ -15,7 +15,7 @@ abstract class Api(
 	private val baseUrl: String,
 	private val deviceProfile: DeviceProfile
 ) {
-	private val client =  HttpClient {
+	protected val client =  HttpClient {
 		install(JsonFeature) {
 			serializer = GsonSerializer(jellyfin.gson)
 		}
@@ -40,7 +40,7 @@ abstract class Api(
 	protected fun createAuthorizationHeader(
 		deviceProfile: DeviceProfile,
 		accessToken: String? = null
-	): String? {
+	): String {
 		val params = mutableMapOf<String, String>()
 
 		// DeviceProfile options
@@ -63,7 +63,7 @@ abstract class Api(
 			})
 	}
 
-	private suspend fun request(
+	protected suspend fun request(
 		method: HttpMethod = HttpMethod.Get,
 		path: String = "/",
 		queryParameters: Map<String, String> = emptyMap(),
@@ -75,8 +75,7 @@ abstract class Api(
 		url(createUrl(path, queryParameters))
 
 		val authorizationHeader = createAuthorizationHeader(deviceProfile, accessToken)
-		if (authorizationHeader != null)
-			header(AUTHORIZATION_HEADER, authorizationHeader)
+		header(AUTHORIZATION_HEADER, authorizationHeader)
 
 		builder()
 	}

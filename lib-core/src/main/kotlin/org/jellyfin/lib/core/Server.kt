@@ -1,6 +1,9 @@
 package org.jellyfin.lib.core
 
 import io.ktor.client.call.receive
+import io.ktor.client.features.websocket.webSocketSession
+import io.ktor.client.request.url
+import io.ktor.http.cio.websocket.Frame
 import org.jellyfin.lib.model.DeviceProfile
 
 class Server(
@@ -32,4 +35,17 @@ class Server(
 	 * Get a user within this server by id + token
 	 */
 	fun getUser(userId: String, accessToken: String) = User(jellyfin, this, userId, accessToken)
+
+	suspend fun getSocket() {
+		// TODO: Test if this works
+		// TODO: Create type-safe way to send & receive messages
+		val socket = client.webSocketSession {
+			url(createUrl("/socket", mapOf("deviceId" to deviceProfile.deviceId)))
+
+//			val authorizationHeader = createAuthorizationHeader(deviceProfile, accessToken)
+//			header(AUTHORIZATION_HEADER, authorizationHeader)
+		}
+
+		socket.send(Frame.Text("Test"))
+	}
 }

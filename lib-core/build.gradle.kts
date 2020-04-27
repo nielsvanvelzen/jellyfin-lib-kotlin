@@ -16,4 +16,5 @@ dependencies {
 	// HTTP
 	implementation("io.ktor:ktor-client-okhttp:1.3.2")
 	implementation("io.ktor:ktor-client-gson:1.3.2")
+	implementation("io.ktor:ktor-client-websockets:1.3.2")
 }
