@@ -2,6 +2,11 @@ plugins {
 	id("maven-publish")
 }
 
+allprojects {
+	project.group = "org.jellyfin"
+	project.version = "1.0.1"
+}
+
 buildscript {
 	repositories {
 		google()
@@ -14,29 +19,17 @@ buildscript {
 	}
 }
 
-
-subprojects {
+allprojects {
 	apply(plugin = "maven-publish")
 
-	group = "org.jellyfin"
-	version = "1.0.0"
+	publishing.repositories.maven {
+		url = uri("https://api.bintray.com/maven/nielsvanvelzen/jellyfin-lib-kotlin/org.jellyfin;publish=1")
 
-	publishing {
-		repositories {
-			maven {
-				url = uri("https://api.bintray.com/maven/nielsvanvelzen/jellyfin-lib-kotlin/org.jellyfin;publish=0")
-
-				credentials {
-					username = project.findProperty("bintray.user") as String? ?: System.getenv("BINTRAY_USER")
-					password = project.findProperty("bintray.key") as String? ?: System.getenv("BINTRAY_KEY")
-				}
-			}
-		}
-
-		publications {
-			create<MavenPublication>("maven") {
-				from(components.findByName("kotlin") ?: components.findByName("java"))
-			}
+		credentials {
+			username = project.findProperty("bintray.user") as String?
+				?: System.getenv("BINTRAY_USER")
+			password = project.findProperty("bintray.key") as String?
+				?: System.getenv("BINTRAY_KEY")
 		}
 	}
 }

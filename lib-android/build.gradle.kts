@@ -2,6 +2,7 @@ plugins {
 	id("com.android.library")
 	id("kotlin-android")
 	id("kotlin-android-extensions")
+	id("maven-publish")
 }
 
 android {
@@ -37,4 +38,14 @@ dependencies {
 	implementation("com.google.code.gson:gson:2.8.6")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.5")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.5")
+}
+
+afterEvaluate {
+	publishing {
+		publications {
+			create<MavenPublication>("maven") {
+				from(components["release"])
+			}
+		}
+	}
 }
