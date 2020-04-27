@@ -3,9 +3,10 @@ package org.jellyfin.lib.core
 import io.ktor.client.call.receive
 
 class Server(
+	val jellyfin: Jellyfin,
 	val baseUrl: String,
 	val deviceProfile: DeviceProfile
-) : Api(baseUrl, deviceProfile) {
+) : Api(jellyfin, baseUrl, deviceProfile) {
 	suspend inline fun <reified T> get(
 		path: String = "/",
 		queryParameters: Map<String, String> = emptyMap()
@@ -29,5 +30,5 @@ class Server(
 	/**
 	 * Get a user within this server by id + token
 	 */
-	fun getUser(userId: String, accessToken: String) = User(this, userId, accessToken)
+	fun getUser(userId: String, accessToken: String) = User(jellyfin, this, userId, accessToken)
 }

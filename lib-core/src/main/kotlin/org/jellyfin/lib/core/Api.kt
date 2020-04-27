@@ -1,7 +1,6 @@
 package org.jellyfin.lib.core
 
 import io.ktor.client.HttpClient
-import io.ktor.client.features.json.GsonSerializer
 import io.ktor.client.features.json.JsonFeature
 import io.ktor.client.request.HttpRequestBuilder
 import io.ktor.client.request.header
@@ -11,12 +10,13 @@ import io.ktor.client.statement.HttpResponse
 import io.ktor.http.*
 
 abstract class Api(
+	private val jellyfin: Jellyfin,
 	private val baseUrl: String,
 	private val deviceProfile: DeviceProfile
 ) {
 	private val client =  HttpClient {
 		install(JsonFeature) {
-			serializer = GsonSerializer()
+			serializer = GsonSerializer(jellyfin.gson)
 		}
 	}
 

@@ -8,9 +8,4 @@ class JellyfinConfiguration {
 	lateinit var deviceProfile: DeviceProfile
 
 	var discoveryBroadcastAddressesProvider: IDiscoveryBroadcastAddressesProvider = JavaNetBroadcastAddressesProvider()
-
-	/**
-	 * Allow HTTP and WS connections
-	 */
-	var allowInsecureConnections: Boolean = false
 }

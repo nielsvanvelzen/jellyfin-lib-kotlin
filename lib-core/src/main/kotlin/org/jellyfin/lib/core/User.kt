@@ -3,10 +3,11 @@ package org.jellyfin.lib.core
 import io.ktor.client.call.receive
 
 class User(
+	val jellyfin: Jellyfin,
 	val server: Server,
 	val userId: String,
 	val accessToken: String
-) : Api(server.baseUrl, server.deviceProfile) {
+) : Api(jellyfin, server.baseUrl, server.deviceProfile) {
 	suspend inline fun <reified T> get(
 		path: String = "/",
 		queryParameters: Map<String, String> = emptyMap()

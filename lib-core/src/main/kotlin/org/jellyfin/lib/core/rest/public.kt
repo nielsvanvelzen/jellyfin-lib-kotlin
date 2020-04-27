@@ -1,3 +1,5 @@
+package org.jellyfin.lib.core.rest
+
 import org.jellyfin.lib.core.Server
 import org.jellyfin.lib.core.rest.model.ServerInfo
 import org.jellyfin.lib.core.rest.model.UserInfo
